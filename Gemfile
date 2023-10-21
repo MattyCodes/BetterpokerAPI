@@ -11,6 +11,8 @@ gem 'puma', '~> 5.0'
 gem 'pundit', '~> 2.2'
 gem 'rack-cors'
 gem 'rails', '~> 7.0.6'
+gem 'redis'
+gem 'sorbet-runtime'
 gem 'sprockets', '~> 3'
 gem 'sqlite3', '~> 1.4'
 

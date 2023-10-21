@@ -8,7 +8,10 @@ class GraphqlController < ApplicationController
     context = {}
 
     result = BetterpokerApiSchema.execute(
-      query, variables: variables, context: context, operation_name: operation_name
+      query,
+      variables: variables,
+      context: context,
+      operation_name: operation_name
     )
 
     render json: result
@@ -19,11 +22,9 @@ class GraphqlController < ApplicationController
   def prepare_variables(variables_param)
     case variables_param
     when String
-      if variables_param.present?
-        JSON.parse(variables_param) || {}
-      else
-        {}
-      end
+      return (JSON.parse(variables_param) || {}) if variables_param.present?
+
+      {}
     when Hash
       variables_param
     when ActionController::Parameters

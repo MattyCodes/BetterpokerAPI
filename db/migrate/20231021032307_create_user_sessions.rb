@@ -4,6 +4,7 @@ class CreateUserSessions < ActiveRecord::Migration[7.0]
       t.string :uuid
       t.string :name
       t.string :vote
+      t.boolean :owner
       t.references :planning_room, index: true
 
       t.timestamps

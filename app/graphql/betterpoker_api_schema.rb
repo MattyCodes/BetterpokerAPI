@@ -5,6 +5,10 @@ class BetterpokerApiSchema < GraphQL::Schema
   # For batch-loading (see https://graphql-ruby.org/dataloader/overview.html)
   use GraphQL::Dataloader
 
+  # Copied this dude's setup: https://medium.com/@jerridan/implementing-graphql-subscriptions-in-rails-and-react-9e05ca8d6b20.
+  use GraphQL::Subscriptions::ActionCableSubscriptions
+  subscription Types::SubscriptionType
+
   # GraphQL-Ruby calls this when something goes wrong while running a query:
   def self.type_error(err, context)
     # if err.is_a?(GraphQL::InvalidNullError)
